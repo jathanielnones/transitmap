@@ -1,0 +1,105 @@
+/* CSS files add styling rules to your content */
+
+#map {
+  /*position:absolute;*/
+  height: 500px;
+  width: 75%;
+}
+
+html, body {
+  background-color: lightgrey;
+  padding: 30px;
+  font-family: Helvetica Narrow;
+  margin: 1em;
+}
+
+.map-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+h2 {
+  color: black;
+  text-align: center;
+  text-shadow: 3px 2px yellow;
+}
+
+h4 {
+  color: black;
+  text-align: center;
+  text-shadow: 3px 2px yellow;
+}
+
+p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.survey {
+  font-size: 10pt;
+  text-align: left;
+}
+
+.survey-labels {
+  text-align: center;
+  margin-right: 25px;
+  display: flex;
+  flex-directon: row;
+  height: 5vh;
+  font-size: 9pt;
+  background: darkgrey;
+  color: white;
+  border-style: solid;
+
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+    
+    .column-right h2 {
+      display: none;
+    }
+  }
+}
+
+/*
+ * We position the sidebar to the right by using float and setting the width
+ * to 100% - the width of the map, in this case 100% - 75% = 25%
+ */
+
+/* note that I removed height from the sidebar because our map-sidebar-container now takes care of this using stretch */
+.sidebar { 
+  background: #eee;
+  float: right;
+  padding: 10px;
+  width: 25%;
+}
+
+.sidebar-footer {
+  margin-top: 75px;
+}
+
+/* new/changed styles */
+
+/* a flex box container set to row, this means that everything will stack up next to each other from left to right */
+#map-sidebar-container {
+  display: flex;
+  flex-direction: row; 
+  align-items: stretch; /* this sets the alignment of the divs contents from top to bottom, using stretch were telling all the items to take up the full height of the container */
+}
+
+/* make the layer picker and buttons all positioned absolute */
+#map-filters {
+  position: absolute; /* position the map filters div as absolute to the map-wrapper div */
+  top: 15px;
+  left: 50px;
+  z-index: 20000;
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; /* this allows the items to wrap onto a new line when the container becomes too narrow for everything to fit on the same line */
+  max-width: 70%; /* setting a max width so that the items wrap within the map area, never overlapping the sidebar */
+}
+

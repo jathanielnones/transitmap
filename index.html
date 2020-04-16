@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h2>
+      TRANSIT ANALYSIS MAP
+    </h2>
+
+    <title>Buttons | CARTO</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <title>Data in sidebar | CARTO</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+        
+    <!-- Load Leaflet CSS -->
+    <link
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      rel="stylesheet"
+    />
+ 
+    <!-- Load styles -->
+    <link rel="stylesheet" href="/style.css" />
+    
+    <!-- Load Leaflet and Carto libraries -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://libs.cartocdn.com/carto.js/v4.2.0/carto.min.js"></script>
+
+      <!-- Adding per Assignment 9 -->
+     <!-- Load Promises polyfill -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    
+    <!-- Load Fetch polyfill -->
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.js"></script>
+    
+    <!-- Load our JavaScript -->
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div class="map-wrapper">
+       <div id="map-sidebar-container"> 
+        <div id="map"></div>
+        <div class="sidebar">
+          <h4>TRANSIT ALTERNATIVES</h4>
+        
+        <!-- We create a div where the feature data will go: -->
+        <div class="sidebar-feature-content"></div>
+        
+        <div class="sidebar-footer">
+          <a href="https://nycedcmgis.maps.arcgis.com/apps/MapJournal/index.html?appid=e15bbc6a49e1401cb673332f19bccaf3">BQX source;</a>
+          <a href="http://library.rpa.org/interactive/the-triboro/">Triboro source;</a>
+          <a href="https://svi.cdc.gov/">SVI source.</a>
+        </div>
+      </div>
+    </div>
+      
+      <!-- new container for map buttons etc -->
+    <div id="map-filters"> 
+      <select class="layer-picker">
+        <option value="None">Existing mass transit options</option>
+        <option value="BQX">Show proposed BQX option</option>
+        <option value="Triboro RX">Show proposed Triboro option</option>
+      </select>
+      
+    <div class="buttons">
+       <button class="populationButton">
+        Compare options by population of service area
+      </button>
+      <button class="vulnerabilityButton">
+        Compare options by vulnerability of service area
+      </button>
+      <button class="incomeButton">
+        Compare options by per capita income of service area
+      </button>
+      <button class="resetButton">
+        Reset filter options
+      </button>
+    </div>
+   </div>
+  </div>
+
+    <p class="survey">
+      So, which transit alternative do you think is best?
+    </p>
+    <div class="survey-labels">
+      <input type="radio" id="BQX" name="feedback" value="4" />
+      <label for="BQX">BQX</label><br />
+      <input type="radio" id="TRIBORO RX" name="feedback" value="3" />
+      <label for="TRIBORO RX">TRIBORO RX</label><br />
+      <input type="radio" id="Neither" name="feedback" value="2" />
+      <label for="Neither">Neither</label>
+      <input type="radio" id="Both" name="feedback" value="2" />
+      <label for="Both">Both</label>
+    </div>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>
